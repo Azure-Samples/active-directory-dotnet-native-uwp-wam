@@ -20,32 +20,23 @@ namespace NativeClient_UWP_WAM
             JObject jResult = null;
             List<UserSearchResult> results = new List<UserSearchResult>();
 
-            try
-            {
-                string graphRequest = String.Format(CultureInfo.InvariantCulture, "{0}/{1}/users?api-version={2}&$filter=mailNickname eq '{3}'", graphResourceUri, tenantId, graphApiVersion, alias);
-                HttpClient client = new HttpClient();
-                HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Get, graphRequest);
-                request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
-                HttpResponseMessage response = await client.SendAsync(request);
+            string graphRequest = String.Format(CultureInfo.InvariantCulture, "{0}/{1}/users?api-version={2}&$filter=mailNickname eq '{3}'", graphResourceUri, tenantId, graphApiVersion, alias);
+            HttpClient client = new HttpClient();
+            HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Get, graphRequest);
+            request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
+            HttpResponseMessage response = await client.SendAsync(request);
 
-                string content = await response.Content.ReadAsStringAsync();
-                jResult = JObject.Parse(content);
-            }
-            catch (Exception ee)
-            {
-                results.Add(new UserSearchResult { error = ee.Message });
-                return results;
-            }
+            string content = await response.Content.ReadAsStringAsync();
+            jResult = JObject.Parse(content);
+
 
             if (jResult["odata.error"] != null)
             {
-                results.Add(new UserSearchResult { error = (string)jResult["odata.error"]["message"]["value"] });
-                return results;
+                throw new Exception((string)jResult["odata.error"]["message"]["value"]);
             }
             if (jResult["value"] == null)
             {
-                results.Add(new UserSearchResult { error = "Unknown Error." });
-                return results;
+                throw new Exception("Unknown Error.");
             }
             foreach (JObject result in jResult["value"])
             {

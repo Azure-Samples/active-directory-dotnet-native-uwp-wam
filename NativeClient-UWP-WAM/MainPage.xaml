@@ -11,6 +11,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
@@ -22,8 +23,12 @@
             <TextBlock Text="Directory Search" Margin="0,0,0,0" Style="{ThemeResource HeaderTextBlockStyle}" />
         </StackPanel>
 
+        <StackPanel Grid.Row="1" Orientation="Horizontal"  Margin="20,20,20,20" BorderBrush="Gray" >
+            <TextBlock x:Name="textSignedIn">You are not signed in. </TextBlock>
+            <HyperlinkButton x:Name="btnSignInOut" Click="btnSignInOut_Click" Padding="0">Sign in</HyperlinkButton>
+        </StackPanel>
         <!--Search Box-->
-        <Grid Grid.Row="1" x:Name="SearchRoot" Margin="20,20,20,0">
+        <Grid Grid.Row="2" x:Name="SearchRoot" Margin="20,20,20,0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="80" />
                 <RowDefinition Height="40" />
@@ -34,7 +39,7 @@
                     <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
                 <TextBox Grid.Column="0" x:Name="SearchTermText" VerticalAlignment="Center" PlaceholderText="Enter an Alias"></TextBox>
-                <Button Grid.Column="1" Margin="10,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Center" x:Name="search" Click="Search" Width="100">Search</Button>
+                <Button Grid.Column="1" Margin="10,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Center" x:Name="btnSearch" Click="btnSearch_Click" Width="100" IsEnabled="False">Search</Button>
             </Grid>
             <TextBlock x:Name="StatusResult" Grid.Row="1" FontSize="20" TextWrapping="Wrap" Margin="10" HorizontalAlignment="Center" Foreground="Green" />
         </Grid>
