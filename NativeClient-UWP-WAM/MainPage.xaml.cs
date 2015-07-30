@@ -28,11 +28,9 @@ namespace NativeClient_UWP_WAM
         ApplicationDataContainer appSettings = null;
         //
         // The Client ID is used by the application to uniquely identify itself to Azure AD.
-        // The Tenant is the name of the Azure AD tenant in which this application is registered.
-        // The AAD Instance is the instance of Azure, for example public Azure or Azure China.
-        // The Authority is the sign-in URL of the tenant.
         const string clientId = "a9b55b7d-66af-4de9-9ee7-c7b04106bdef";
-
+        
+        // const string tenant = "yourtenant.onmicrosoft.com";
         // const string authority = "https://login.microsoftonline.com/" + tenant;
         const string authority = "organizations";
 
