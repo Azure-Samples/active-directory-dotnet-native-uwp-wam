@@ -4,7 +4,7 @@ platforms:
 author: azure
 ---
 
-NativeClient-WindowsUniversalPlatform-WebAccountManager
+Integrate a Windows Universal Platform app with Azure AD and the WebAccountManager API
 =========================
 
 This sample demonstrates a Universal Windows Platform (UWP) app calling the directory Graph API to look up a user. The UWP app uses the Windows 10 WebAccountManager API to obtain an access token for the Graph as the currently signed in user, or any valid Azure AD account entered by the user.
