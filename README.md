@@ -1,11 +1,10 @@
 ---
-services:
-platforms:
-author: azure
+services: active-directory
+platforms: dotnet
+author: dstrockis
 ---
 
 Integrate a Windows Universal Platform app with Azure AD and the WebAccountManager API
-=========================
 
 This sample demonstrates a Universal Windows Platform (UWP) app calling the directory Graph API to look up a user. The UWP app uses the Windows 10 WebAccountManager API to obtain an access token for the Graph as the currently signed in user, or any valid Azure AD account entered by the user.
 
@@ -21,13 +20,13 @@ To run this sample you will need:
 - An Azure subscription (a free trial is sufficient)
 - A Microsoft account
 
-Every Azure subscription has an associated Azure Active Directory tenant.  If you don't already have an Azure subscription, you can get a free subscription by signing up at [http://wwww.windowsazure.com](http://www.windowsazure.com).  All of the Azure AD features used by this sample are available free of charge.
+Every Azure subscription has an associated Azure Active Directory tenant.  If you don't already have an Azure subscription, you can get a free subscription by signing up at [https://azure.microsoft.com](https://azure.microsoft.com).  All of the Azure AD features used by this sample are available free of charge.
 
 ### Step 1:  Clone or download this repository
 
 From your shell or command line:
 
-`git clone https://github.com/AzureADSamples/NativeClient-UWP-WAM.git`
+`git clone https://github.com/Azure-Samples/active-directory-dotnet-native-uwp-wam.git`
 
 ### Step 2:  Create a user account in your Azure Active Directory tenant
 
