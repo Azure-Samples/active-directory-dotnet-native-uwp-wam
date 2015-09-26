@@ -1,7 +1,7 @@
 ---
 services: active-directory
 platforms: dotnet
-author: dstrockis
+author: vibronet
 ---
 
 Integrate a Windows Universal Platform app with Azure AD and the WebAccountManager API
