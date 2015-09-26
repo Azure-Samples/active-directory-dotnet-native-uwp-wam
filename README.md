@@ -71,7 +71,7 @@ ms-appx-web://Microsoft.AAD.BrokerPlugIn/S-1-15-2-694665007-945573255-503870805-
 8. Enter the Redirect URI value that you obtained during the previous step.  Click finish.
 9. Click the Configure tab of the application.
 10. Find the Client ID value and copy it aside, you will need this later when configuring your application.
-11. In "Permissions to Other Applications", "Windows Azure Active Directory" row, open the "Delegated Permissions" dropdown. 
+11. In "Permissions to Other Applications", "Azure Active Directory" row, open the "Delegated Permissions" dropdown. 
 12. Check the "Access your organization's directory" checkbox.
 13. Save the configuration.
 
