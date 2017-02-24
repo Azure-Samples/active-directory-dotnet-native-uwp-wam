@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+# Visual Studio 15
+VisualStudioVersion = 15.0.26223.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NativeClient-UWP-WAM", "NativeClient-UWP-WAM\NativeClient-UWP-WAM.csproj", "{67342E01-A915-4A44-8AFF-FFE6B771E8CE}"
 EndProject
@@ -22,7 +22,6 @@ Global
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{67342E01-A915-4A44-8AFF-FFE6B771E8CE}.Debug|ARM.ActiveCfg = Debug|ARM
 		{67342E01-A915-4A44-8AFF-FFE6B771E8CE}.Debug|ARM.Build.0 = Debug|ARM
-		{67342E01-A915-4A44-8AFF-FFE6B771E8CE}.Debug|ARM.Deploy.0 = Debug|ARM
 		{67342E01-A915-4A44-8AFF-FFE6B771E8CE}.Debug|x64.ActiveCfg = Debug|x64
 		{67342E01-A915-4A44-8AFF-FFE6B771E8CE}.Debug|x64.Build.0 = Debug|x64
 		{67342E01-A915-4A44-8AFF-FFE6B771E8CE}.Debug|x64.Deploy.0 = Debug|x64
