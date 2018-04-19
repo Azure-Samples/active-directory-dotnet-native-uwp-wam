@@ -2,25 +2,26 @@
 using System;
 using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace NativeClient_UWP_WAM
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public static class DirectorySearcher
     {
-        const string graphResourceUri = "https://graph.windows.net";
-        public static string graphApiVersion = "1.5";
+        private const string graphResourceUri = "https://graph.microsoft.com";
+        public static string graphApiVersion = "v1.0";
 
         public static async Task<List<UserSearchResult>> SearchByAlias(string alias, string accessToken, string tenantId)
         {
             JObject jResult = null;
             List<UserSearchResult> results = new List<UserSearchResult>();
 
-            string graphRequest = String.Format(CultureInfo.InvariantCulture, "{0}/{1}/users?api-version={2}&$filter=mailNickname eq '{3}'", graphResourceUri, tenantId, graphApiVersion, alias);
+            string graphRequest = String.Format(CultureInfo.InvariantCulture, "{0}/{1}/users?$filter=startswith(mailNickName,'{2}')", graphResourceUri, graphApiVersion, alias);
             HttpClient client = new HttpClient();
             HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Get, graphRequest);
             request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
@@ -28,7 +29,6 @@ namespace NativeClient_UWP_WAM
 
             string content = await response.Content.ReadAsStringAsync();
             jResult = JObject.Parse(content);
-
 
             if (jResult["odata.error"] != null)
             {
