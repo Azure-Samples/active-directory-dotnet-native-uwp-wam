@@ -18,8 +18,6 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
-
-
 namespace NativeClient_UWP_WAM
 {
 
@@ -28,14 +26,13 @@ namespace NativeClient_UWP_WAM
         ApplicationDataContainer appSettings = null;
         //
         // The Client ID is used by the application to uniquely identify itself to Azure AD.
-        const string clientId = "a9b55b7d-66af-4de9-9ee7-c7b04106bdef";
-        
-        // const string tenant = "yourtenant.onmicrosoft.com";
-        // const string authority = "https://login.microsoftonline.com/" + tenant;
-        const string authority = "organizations";
+        const string clientId = "4e54273c-9fc5-42f4-81b6-60d1b66c9160"; // Alternatively "[Enter your client ID, as obtained from the azure portal, e.g. 4e54273c-9fc5-42f4-81b6-60d1b66c9160]"
+
+        const string tenant = "common"; // Alternatively "[Enter your tenant, as obtained from the azure portal, e.g. kko365.onmicrosoft.com]"
+        const string authority = "https://login.microsoftonline.com/" + tenant;
 
         // To authenticate to the directory Graph, the client needs to know its App ID URI.
-        const string resource = "https://graph.windows.net";
+        const string resource = "https://graph.microsoft.com";
 
         // Windows10 universal apps require redirect URI in the format below
         string URI = string.Format("ms-appx-web://Microsoft.AAD.BrokerPlugIn/{0}", WebAuthenticationBroker.GetCurrentApplicationCallbackUri().Host.ToUpper());
@@ -46,8 +43,8 @@ namespace NativeClient_UWP_WAM
         public MainPage()
         {
             this.InitializeComponent();
-            
-            List<UserSearchResult> results = new List<UserSearchResult>();
+
+            IList<UserSearchResult> results = new List<UserSearchResult>();
             results.Add(new UserSearchResult());
             SearchResults.ItemsSource = results;
         }
@@ -55,10 +52,10 @@ namespace NativeClient_UWP_WAM
         protected async override void OnNavigatedTo(NavigationEventArgs e)
         {
             wap = await WebAuthenticationCoreManager.FindAccountProviderAsync("https://login.microsoft.com", authority);
-            appSettings = ApplicationData.Current.RoamingSettings;                               
+            appSettings = ApplicationData.Current.RoamingSettings;
             WebTokenRequest wtr = new WebTokenRequest(wap, string.Empty, clientId);
             wtr.Properties.Add("resource", resource);
-            
+
             // Check if there's a record of the last account used with the app
             var userID = appSettings.Values["userID"];
             if (userID != null)
@@ -70,11 +67,11 @@ namespace NativeClient_UWP_WAM
                     // Ensure that the saved account works for getting the token we need
                     WebTokenRequestResult wtrr = await WebAuthenticationCoreManager.RequestTokenAsync(wtr, userAccount);
                     if (wtrr.ResponseStatus == WebTokenRequestStatus.Success)
-                    {                        
+                    {
                         userAccount = wtrr.ResponseData[0].WebAccount;
                     }
                     else
-                    {                        
+                    {
                         // The saved account could not be used for getitng a token
                         MessageDialog messageDialog = new MessageDialog("We tried to sign you in with the last account you used with this app, but it didn't work out. Please sign in as a different user.");
                         await messageDialog.ShowAsync();
@@ -88,13 +85,13 @@ namespace NativeClient_UWP_WAM
                     wtr.Properties.Add("LoginHint", appSettings.Values["login_hint"].ToString());
                     WebTokenRequestResult wtrr = await WebAuthenticationCoreManager.RequestTokenAsync(wtr);
                     if (wtrr.ResponseStatus == WebTokenRequestStatus.Success)
-                    {                        
+                    {
                         userAccount = wtrr.ResponseData[0].WebAccount;
                     }
                 }
             }
             else
-            {  
+            {
                 // There is no recorded user. Let's start a sign in flow without imposing a specific account.                             
                 WebTokenRequestResult wtrr = await WebAuthenticationCoreManager.RequestTokenAsync(wtr);
                 if (wtrr.ResponseStatus == WebTokenRequestStatus.Success)
@@ -113,7 +110,7 @@ namespace NativeClient_UWP_WAM
                 // nothing we tried worked. Ensure that the UX reflects that there is no user currently signed in.
                 UpdateUXonSignOut();
                 MessageDialog messageDialog = new MessageDialog("We could not sign you in. Please try again.");
-                await messageDialog.ShowAsync();                
+                await messageDialog.ShowAsync();
             }
         }
 
@@ -135,7 +132,7 @@ namespace NativeClient_UWP_WAM
                 }
                 catch (Exception ee)
                 {
-                    MessageDialog messageDialog = new MessageDialog("The Graph query didn't work. Error: "+ee.Message);
+                    MessageDialog messageDialog = new MessageDialog("The Graph query didn't work. Error: " + ee.Message);
                     await messageDialog.ShowAsync();
                 }
             }
@@ -143,7 +140,7 @@ namespace NativeClient_UWP_WAM
             {
                 MessageDialog messageDialog = new MessageDialog("We tried to get a token for the Graph as the account you are currently signed in, but it didn't work out. Please sign in as a different user.");
                 await messageDialog.ShowAsync();
-            }            
+            }
         }
 
         // Change the currently signed in user
@@ -180,12 +177,12 @@ namespace NativeClient_UWP_WAM
         // update the UX and the app settings to show that no user is signed in at the moment
         private void UpdateUXonSignOut()
         {
-                appSettings.Values["userID"] = null;
-                appSettings.Values["login_hint"] = null;
+            appSettings.Values["userID"] = null;
+            appSettings.Values["login_hint"] = null;
             btnSearch.IsEnabled = false;
-                textSignedIn.Text = "You are not signed in. ";
-                btnSignInOut.Content = "Sign in";
-                SearchResults.ItemsSource = new List<UserSearchResult>();
-        }        
+            textSignedIn.Text = "You are not signed in. ";
+            btnSignInOut.Content = "Sign in";
+            SearchResults.ItemsSource = new List<UserSearchResult>();
+        }
     }
 }

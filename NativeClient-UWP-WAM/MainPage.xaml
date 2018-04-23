@@ -24,7 +24,7 @@
         </StackPanel>
 
         <StackPanel Grid.Row="1" Orientation="Horizontal"  Margin="20,20,20,20" BorderBrush="Gray" >
-            <TextBlock x:Name="textSignedIn">You are not signed in. </TextBlock>
+            <TextBlock x:Name="textSignedIn">You are not signed in. &#160;</TextBlock>
             <HyperlinkButton x:Name="btnSignInOut" Click="btnSignInOut_Click" Padding="0">Sign in</HyperlinkButton>
         </StackPanel>
         <!--Search Box-->
@@ -45,32 +45,31 @@
         </Grid>
 
         <!--Search Results-->
-        <GridView x:Name="SearchResults" Grid.Row="3" Margin="0,0,0,0">
-            <GridView.ItemTemplate>
-                <DataTemplate>
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="Auto" />
-                            <ColumnDefinition Width="*" />
-                        </Grid.ColumnDefinitions>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="Auto" />
-                        </Grid.RowDefinitions>
-                        <TextBlock Grid.Column="0" Grid.Row="0" FontSize="24" TextWrapping="Wrap" Margin="10" HorizontalAlignment="Right">First Name:</TextBlock>
-                        <TextBlock Grid.Column="0" Grid.Row="1" FontSize="24" TextWrapping="Wrap" Margin="10" HorizontalAlignment="Right">Last Name:</TextBlock>
-                        <TextBlock Grid.Column="0" Grid.Row="2" FontSize="24" TextWrapping="Wrap" Margin="10" HorizontalAlignment="Right">UPN:</TextBlock>
-                        <TextBlock Grid.Column="0" Grid.Row="3" FontSize="24" TextWrapping="Wrap" Margin="10" HorizontalAlignment="Right" >Phone:</TextBlock>
-                        <TextBlock Grid.Column="1" Grid.Row="0" FontSize="24" TextWrapping="Wrap" Margin="10" HorizontalAlignment="Left" Text="{Binding givenName}"/>
-                        <TextBlock Grid.Column="1" Grid.Row="1" FontSize="24" TextWrapping="Wrap" Margin="10" HorizontalAlignment="Left" Text="{Binding surname}"/>
-                        <TextBlock Grid.Column="1" Grid.Row="2" FontSize="24" TextWrapping="Wrap" Margin="10" HorizontalAlignment="Left" Text="{Binding userPrincipalName}"/>
-                        <TextBlock Grid.Column="1" Grid.Row="3" FontSize="24" TextWrapping="Wrap" Margin="10" HorizontalAlignment="Left" Text="{Binding telephoneNumber}"/>
-                    </Grid>
-                </DataTemplate>
-            </GridView.ItemTemplate>
-        </GridView>
-
+            <GridView x:Name="SearchResults" Grid.Row="3" Margin="0,0,0,0">
+                <GridView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid BorderThickness="1" BorderBrush="Gray">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <TextBlock Grid.Column="0" Grid.Row="0" FontSize="24" TextWrapping="Wrap" Margin="10" HorizontalAlignment="Right">First Name:</TextBlock>
+                            <TextBlock Grid.Column="0" Grid.Row="1" FontSize="24" TextWrapping="Wrap" Margin="10" HorizontalAlignment="Right">Last Name:</TextBlock>
+                            <TextBlock Grid.Column="0" Grid.Row="2" FontSize="24" TextWrapping="Wrap" Margin="10" HorizontalAlignment="Right">UPN:</TextBlock>
+                            <TextBlock Grid.Column="0" Grid.Row="3" FontSize="24" TextWrapping="Wrap" Margin="10" HorizontalAlignment="Right" >Phone:</TextBlock>
+                            <TextBlock Grid.Column="1" Grid.Row="0" FontSize="24" TextWrapping="Wrap" Margin="10" HorizontalAlignment="Left" Text="{Binding givenName}"/>
+                            <TextBlock Grid.Column="1" Grid.Row="1" FontSize="24" TextWrapping="Wrap" Margin="10" HorizontalAlignment="Left" Text="{Binding surname}"/>
+                            <TextBlock Grid.Column="1" Grid.Row="2" FontSize="24" TextWrapping="Wrap" Margin="10" HorizontalAlignment="Left" Text="{Binding userPrincipalName}"/>
+                            <TextBlock Grid.Column="1" Grid.Row="3" FontSize="24" TextWrapping="Wrap" Margin="10" HorizontalAlignment="Left" Text="{Binding telephoneNumber}"/>
+                        </Grid>
+                    </DataTemplate>
+                </GridView.ItemTemplate>
+            </GridView>
     </Grid>
 </Page>
