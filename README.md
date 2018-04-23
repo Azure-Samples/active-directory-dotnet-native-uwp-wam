@@ -121,7 +121,7 @@ This project has adopted the [Microsoft Open Source Code of Conduct](https://ope
 
 ## More information
 
-For more information, please visit the [new documentation homepage for Microsoft identity](http://aka.ms/aaddevv2) or visit one of the following links.
+For more information, please visit the [documentation homepage for Microsoft identity](http://aka.ms/aaddev) or visit one of the following links.
 
 - [Web Account Manager](https://docs.microsoft.com/en-us/windows/uwp/security/web-account-manager)
 - [Overview of Microsoft Graph](https://developer.microsoft.com/en-us/graph/docs/concepts/overview)
