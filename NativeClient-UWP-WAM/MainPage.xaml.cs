@@ -26,9 +26,9 @@ namespace NativeClient_UWP_WAM
         ApplicationDataContainer appSettings = null;
         //
         // The Client ID is used by the application to uniquely identify itself to Azure AD.
-        const string clientId = "[Enter your client ID, as obtained from the azure portal, e.g. fc502c6a-bd85-42ca-974e-893043c347d7]";
+        const string clientId = "4e54273c-9fc5-42f4-81b6-60d1b66c9160"; // Alternatively "[Enter your client ID, as obtained from the azure portal, e.g. 4e54273c-9fc5-42f4-81b6-60d1b66c9160]"
 
-        const string tenant = "[Enter your tenant, as obtained from the azure portal, e.g. kko365.onmicrosoft.com]";
+        const string tenant = "common"; // Alternatively "[Enter your tenant, as obtained from the azure portal, e.g. kko365.onmicrosoft.com]"
         const string authority = "https://login.microsoftonline.com/" + tenant;
 
         // To authenticate to the directory Graph, the client needs to know its App ID URI.

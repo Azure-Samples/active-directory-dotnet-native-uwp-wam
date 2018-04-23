@@ -62,7 +62,7 @@ Before you can register the application in the Azure portal, you need to find ou
 The redirectURI value will look something like this text:
 
 ```Text
-ms-appx-web://Microsoft.AAD.BrokerPlugIn/S-1-15-2-694665007-945573255-503870805-3898041910-4166806349-50292026-2305040851
+ms-appx-web://Microsoft.AAD.BrokerPlugIn/S-1-15-2-2650639956-658609593-457089695-429683492-3460685052-1353383220-3160185542
 ```
 
 #### Register the app
@@ -81,7 +81,6 @@ As a first step you'll need to:
 1. Click on **Create** to create the application.
 1. In the succeeding page, Find the *Application ID* value and copy it to the clipboard. You'll need it to configure the Visual Studio configuration file for this project.
 1. Then click on **Settings**, and choose **Properties**.
-1. For the App ID URI, replace the guid in the generated URI 'https://\<your_tenant_name\>/\<guid\>', with the name of your service, for example, 'https://\<your_tenant_name\>/NativeClient-UWP-WAM' (replacing `<your_tenant_name>` with the name of your Azure AD tenant)
 1. Configure Permissions for your application. To that extent, in the Settings menu, choose the 'Required permissions' section and then:
 
    - click on **Add**, then **Select an API**, and type `Microsoft Graph` in the textbox. Then, click on  **Select Permissions** and select **Sign in and read user profile** and **Read all users basic profile**.
