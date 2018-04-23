@@ -9,7 +9,7 @@ endpoint: AAD V1
 ---
 # Universal Windows Platform (UWP) application calling the Microsoft Graph using Windows 10 Web Account Manager
 
-![Build badge](https://identitydivision.visualstudio.com/_apis/public/build/definitions/a7934fdd-dcde-4492-a406-7fad6ac00e17/485/badge)
+![Build badge](https://identitydivision.visualstudio.com/_apis/public/build/definitions/a7934fdd-dcde-4492-a406-7fad6ac00e17/515/badge)
 
 This sample demonstrates a Universal Windows Platform (UWP) app calling the directory Graph API to look up a user. The UWP app uses the Windows 10 [WebAccountManager API](https://docs.microsoft.com/en-us/uwp/api/Windows.Security.Authentication.Web.Provider.WebAccountManager) to obtain an access token for the Graph as the currently signed in user, or any valid Azure AD account entered by the user.
 
