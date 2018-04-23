@@ -11,7 +11,7 @@ endpoint: AAD V1
 
 ![Build badge](https://identitydivision.visualstudio.com/_apis/public/build/definitions/a7934fdd-dcde-4492-a406-7fad6ac00e17/515/badge)
 
-This sample demonstrates a Universal Windows Platform (UWP) app calling the directory Graph API to look up a user. The UWP app uses the Windows 10 [WebAccountManager API](https://docs.microsoft.com/en-us/uwp/api/Windows.Security.Authentication.Web.Provider.WebAccountManager) to obtain an access token for the Graph as the currently signed in user, or any valid Azure AD account entered by the user.
+This sample demonstrates a Universal Windows Platform (UWP) app calling the directory Graph API to look up a user. The UWP app uses the Windows 10 [Web Account Manager](https://docs.microsoft.com/en-us/windows/uwp/security/web-account-manager) to obtain an access token for the Graph as the currently signed in user, or any valid Azure AD account entered by the user.
 
 For more information about how the protocols work in this scenario and other scenarios, see [Authentication Scenarios for Azure AD](http://go.microsoft.com/fwlink/?LinkId=394414).
 
@@ -121,9 +121,19 @@ This project has adopted the [Microsoft Open Source Code of Conduct](https://ope
 
 ## More information
 
-For more information, please visit the [new documentation homepage for Microsoft identity](http://aka.ms/aaddevv2) or visit one of the following links.
+For more information, please visit the [new documentation homepage for Microsoft identity](http://aka.ms/aaddevv2) or visit one of the following links:
+
+Web Account Manager (WAM):
 
 - [Web Account Manager](https://docs.microsoft.com/en-us/windows/uwp/security/web-account-manager)
+- [Web Account Manager API reference](https://docs.microsoft.com/en-us/windows/uwp/security/web-account-manager)
+
+Microsoft Graph:
+
 - [Overview of Microsoft Graph](https://developer.microsoft.com/en-us/graph/docs/concepts/overview)
 - [Get access tokens to call Microsoft Graph](https://developer.microsoft.com/en-us/graph/docs/concepts/auth_overview)
 - [Use the Microsoft Graph API](https://developer.microsoft.com/en-us/graph/docs/concepts/use_the_api)
+
+Registrering an application with Azure Active Directory
+
+- [Integrating applications with Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-integrating-applications)
