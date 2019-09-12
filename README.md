@@ -1,12 +1,13 @@
 ---
-services: active-directory
-platforms: dotnet
-author: jmprieur
-level: 200
-client: UWP 
-service: Microsoft Graph
-endpoint: AAD V1
+page_type: sample
+languages:
+- csharp
+products:
+- azure
+description: "This sample demonstrates a Universal Windows Platform (UWP) app calling the directory Graph API to look up a user."
+urlFragment: active-directory-dotnet-native-uwp-wam
 ---
+
 # Universal Windows Platform (UWP) application calling the Microsoft Graph using Windows 10 Web Account Manager
 
 ![Build badge](https://identitydivision.visualstudio.com/_apis/public/build/definitions/a7934fdd-dcde-4492-a406-7fad6ac00e17/515/badge)
