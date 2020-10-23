@@ -92,7 +92,7 @@ As a first step you'll need to:
 1. Find the declaration of `clientId` and replace the value with the Client ID from the Azure portal.
 1. Find the const declaration named `tenant`, and replace the value with the name of your Azure AD tenant.
 
-### Step 4:  Run the sample
+### Step 3:  Run the sample
 
 Clean the solution, rebuild the solution, and run it.
 
